@@ -13,7 +13,8 @@ $Files = @(
     "resources.html",
     "credentials.html",
     "faq.html",
-    "styles.css"
+    "styles.css",
+    "favicon.svg"
 )
 
 # STEP 1: Resolve source
