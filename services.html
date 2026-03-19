@@ -15,7 +15,7 @@
       grid-template-columns: 1fr 1.6fr;
       gap: 5rem;
       padding: 5rem 0;
-      border-bottom: 1px solid rgba(0,217,126,0.15);
+      border-bottom: 1px solid rgba(160,98,42,0.15);
       align-items: start;
     }
 
@@ -24,10 +24,10 @@
     .service-left {}
 
     .service-num-lg {
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 5rem;
       font-weight: 300;
-      color: rgba(0,217,126,0.12);
+      color: rgba(160,98,42,0.12);
       line-height: 1;
       margin-bottom: 0.5rem;
     }
@@ -41,7 +41,7 @@
 
     .service-left p {
       font-size: 0.9rem;
-      color: var(--silk-dim);
+      color: var(--slate);
       line-height: 1.8;
       margin-top: 1rem;
     }
@@ -57,18 +57,18 @@
 
     .service-detail-list li {
       padding: 1rem 0;
-      border-bottom: 1px solid rgba(0,217,126,0.1);
+      border-bottom: 1px solid rgba(160,98,42,0.1);
       display: flex;
       gap: 1rem;
       align-items: flex-start;
       font-size: 0.92rem;
-      color: var(--silk);
+      color: var(--ink);
       line-height: 1.6;
     }
 
     .service-detail-list li::before {
       content: '→';
-      color: var(--mask-green);
+      color: var(--copper);
       font-size: 0.8rem;
       margin-top: 0.15rem;
       flex-shrink: 0;
@@ -85,24 +85,24 @@
       font-size: 0.75rem;
       font-weight: 400;
       letter-spacing: 0.06em;
-      color: var(--silk);
-      background: var(--substrate-md);
-      border: 1px solid rgba(0,217,126,0.2);
+      color: var(--ink);
+      background: var(--parchment-dk);
+      border: 1px solid rgba(160,98,42,0.2);
       padding: 0.4rem 0.9rem;
       border-radius: 2px;
     }
 
     .deliverables-box {
-      background: var(--substrate);
+      background: var(--parchment);
       padding: 2rem;
       margin-top: 2rem;
     }
 
     .deliverables-box h4 {
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       font-weight: 600;
-      color: var(--substrate-lt);
+      color: var(--white);
       margin-bottom: 1rem;
       letter-spacing: 0.04em;
     }
@@ -138,15 +138,16 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo"><span>thenapolitan</span></a>
+    <a href="index.html" class="nav-logo">the<span>napolitan</span></a>
     <ul class="nav-links">
       <li><a href="services.html" class="active">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="resources.html">Resources</a>
+      <a href="credentials.html">Credentials</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
 
@@ -282,12 +283,12 @@
   </section>
 
   <!-- CTA BANNER -->
-  <section style="background: var(--mask-green); padding: 5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+  <section style="background: var(--copper); padding: 5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
     <div>
-      <h2 style="color: var(--substrate-lt); font-size: clamp(1.8rem, 3vw, 2.4rem);">Not sure which service fits?</h2>
+      <h2 style="color: var(--white); font-size: clamp(1.8rem, 3vw, 2.4rem);">Not sure which service fits?</h2>
       <p style="color: rgba(245,240,232,0.7); margin-top: 0.6rem;">Send a message — we'll figure it out together.</p>
     </div>
-    <a href="index.html#contact" class="btn" style="background: var(--substrate); color: var(--mask-green); border: 1px solid var(--substrate-lt); white-space: nowrap;">Start the Conversation →</a>
+    <a href="index.html#contact" class="btn" style="background: var(--parchment); color: var(--copper); border: 1px solid var(--white); white-space: nowrap;">Start the Conversation →</a>
   </section>
 
   <footer>
@@ -295,6 +296,7 @@
     <div class="footer-links">
       <a href="services.html">Services</a>
       <a href="portfolio.html">Portfolio</a>
+      <a href="resources.html">Resources</a>
       <a href="credentials.html">Credentials</a>
       <a href="faq.html">FAQ</a>
     </div>

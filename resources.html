@@ -17,7 +17,7 @@
 
     .resources-intro p {
       font-size: 1rem;
-      color: var(--silk-dim);
+      color: var(--slate);
       line-height: 1.8;
       margin-top: 1rem;
     }
@@ -34,11 +34,11 @@
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.1em;
-      text-transform: uppercase;
+      
       padding: 0.5rem 1.2rem;
-      border: 1px solid rgba(0,217,126,0.25);
+      border: 1px solid rgba(160,98,42,0.25);
       background: transparent;
-      color: var(--silk-dim);
+      color: var(--slate);
       border-radius: 2px;
       cursor: pointer;
       transition: all 0.2s;
@@ -47,8 +47,8 @@
     .filter-btn:hover,
     .filter-btn.active {
       background: var(--copper);
-      border-color: var(--mask-green);
-      color: var(--substrate-md);
+      border-color: var(--copper);
+      color: var(--parchment-dk);
     }
 
     /* ─── RESOURCE GRID ─── */
@@ -59,8 +59,8 @@
     }
 
     .resource-card {
-      background: var(--substrate-md);
-      border: 1px solid rgba(0,217,126,0.15);
+      background: var(--parchment-dk);
+      border: 1px solid rgba(160,98,42,0.15);
       display: flex;
       flex-direction: column;
       position: relative;
@@ -75,7 +75,7 @@
 
     .resource-card-header {
       padding: 2rem 2rem 1.5rem;
-      border-bottom: 1px solid rgba(0,217,126,0.1);
+      border-bottom: 1px solid rgba(160,98,42,0.1);
       position: relative;
     }
 
@@ -86,21 +86,21 @@
       font-size: 0.62rem;
       font-weight: 600;
       letter-spacing: 0.1em;
-      text-transform: uppercase;
+      
       padding: 0.3rem 0.7rem;
       border-radius: 1px;
     }
 
     .badge-free {
       background: rgba(61,92,69,0.12);
-      color: var(--mask-green);
+      color: var(--copper);
       border: 1px solid rgba(61,92,69,0.2);
     }
 
     .badge-paid {
-      background: rgba(0,217,126,0.1);
-      color: var(--mask-green);
-      border: 1px solid rgba(0,217,126,0.25);
+      background: rgba(160,98,42,0.1);
+      color: var(--copper);
+      border: 1px solid rgba(160,98,42,0.25);
     }
 
     .resource-icon {
@@ -117,7 +117,7 @@
 
     .resource-subtitle {
       font-size: 0.78rem;
-      color: var(--silk-dim);
+      color: var(--slate);
       line-height: 1.5;
     }
 
@@ -130,8 +130,8 @@
       font-size: 0.65rem;
       font-weight: 600;
       letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mask-green);
+      
+      color: var(--copper);
       margin-bottom: 0.8rem;
     }
 
@@ -144,7 +144,7 @@
 
     .includes-list li {
       font-size: 0.82rem;
-      color: var(--silk-dim);
+      color: var(--slate);
       display: flex;
       align-items: flex-start;
       gap: 0.5rem;
@@ -153,7 +153,7 @@
 
     .includes-list li::before {
       content: '✓';
-      color: var(--mask-green);
+      color: var(--copper);
       font-size: 0.72rem;
       flex-shrink: 0;
       margin-top: 0.1rem;
@@ -165,13 +165,13 @@
 
     .includes-list li.teaser::before {
       content: '···';
-      color: rgba(0,217,126,0.3);
+      color: rgba(160,98,42,0.3);
       font-size: 0.65rem;
     }
 
     .resource-card-footer {
       padding: 1.5rem 2rem;
-      border-top: 1px solid rgba(0,217,126,0.1);
+      border-top: 1px solid rgba(160,98,42,0.1);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -179,14 +179,14 @@
     }
 
     .resource-price {
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       font-weight: 300;
-      color: var(--silk);
+      color: var(--ink);
     }
 
     .resource-price.free-label {
-      color: var(--mask-green);
+      color: var(--copper);
       font-size: 1.2rem;
     }
 
@@ -215,16 +215,16 @@
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--silk-dim);
-      background: var(--substrate-md);
-      border: 1px solid rgba(0,217,126,0.25);
+      
+      color: var(--slate);
+      background: var(--parchment-dk);
+      border: 1px solid rgba(160,98,42,0.25);
       padding: 0.5rem 1.2rem;
     }
 
     /* ─── VALUE PROP BANNER ─── */
     .value-banner {
-      background: var(--substrate);
+      background: var(--parchment);
       padding: 4rem 3rem;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -237,10 +237,10 @@
     .value-icon { font-size: 2rem; margin-bottom: 0.8rem; }
 
     .value-title {
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       font-weight: 400;
-      color: var(--substrate-lt);
+      color: var(--white);
       margin-bottom: 0.5rem;
     }
 
@@ -263,7 +263,7 @@
 
     .notify-section p {
       font-size: 0.95rem;
-      color: var(--silk-dim);
+      color: var(--slate);
       margin-top: 1rem;
       line-height: 1.8;
     }
@@ -275,18 +275,18 @@
 
     .notify-form input {
       flex: 1;
-      background: var(--substrate-md);
-      border: 1px solid rgba(0,217,126,0.2);
+      background: var(--parchment-dk);
+      border: 1px solid rgba(160,98,42,0.2);
       border-radius: 2px;
       padding: 0.75rem 1rem;
-      font-family: 'IBM Plex Sans', sans-serif;
+      font-family: 'Source Sans 3', sans-serif;
       font-size: 0.9rem;
-      color: var(--silk);
+      color: var(--ink);
       outline: none;
       transition: border-color 0.2s;
     }
 
-    .notify-form input:focus { border-color: var(--mask-green); }
+    .notify-form input:focus { border-color: var(--copper); }
 
     @media (max-width: 1100px) {
       .resource-grid { grid-template-columns: repeat(2, 1fr); }
@@ -305,14 +305,15 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo"><span>thenapolitan</span></a>
+    <a href="index.html" class="nav-logo">the<span>napolitan</span></a>
     <ul class="nav-links">
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="resources.html" class="active">Resources</a></li>
-      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="resources.html">Resources</a>
+      <a href="credentials.html">Credentials</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
 
@@ -558,18 +559,18 @@
         <input type="email" placeholder="you@company.com" required />
         <button type="submit" class="btn btn-primary">Notify Me</button>
       </form>
-      <p id="notify-status" style="display:none; font-size:0.82rem; color:var(--mask-green); margin-top:0.8rem;">✓ You're on the list — I'll reach out when new guides are ready.</p>
-      <p style="font-size:0.75rem; color:var(--silk-dim); margin-top:0.8rem; line-height:1.6;">No spam. Unsubscribe any time. Email goes directly to Chris.</p>
+      <p id="notify-status" style="display:none; font-size:0.82rem; color:var(--copper); margin-top:0.8rem;">✓ You're on the list — I'll reach out when new guides are ready.</p>
+      <p style="font-size:0.75rem; color:var(--slate); margin-top:0.8rem; line-height:1.6;">No spam. Unsubscribe any time. Email goes directly to Chris.</p>
     </div>
   </section>
 
   <!-- CTA -->
-  <section style="background: var(--mask-green); padding: 5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+  <section style="background: var(--copper); padding: 5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
     <div>
-      <h2 style="color: var(--substrate-lt);">Need something more specific?</h2>
+      <h2 style="color: var(--white);">Need something more specific?</h2>
       <p style="color: rgba(245,240,232,0.7); margin-top: 0.6rem;">Custom SOPs and process documentation are available as a consulting engagement.</p>
     </div>
-    <a href="index.html#contact" class="btn" style="background: var(--substrate); color: var(--mask-green); border: 1px solid var(--substrate-lt); white-space: nowrap;">Discuss a Custom Guide →</a>
+    <a href="index.html#contact" class="btn" style="background: var(--parchment); color: var(--copper); border: 1px solid var(--white); white-space: nowrap;">Discuss a Custom Guide →</a>
   </section>
 
   <footer>
@@ -577,6 +578,7 @@
     <div class="footer-links">
       <a href="services.html">Services</a>
       <a href="portfolio.html">Portfolio</a>
+      <a href="resources.html">Resources</a>
       <a href="resources.html">Resources</a>
       <a href="credentials.html">Credentials</a>
       <a href="faq.html">FAQ</a>
