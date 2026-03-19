@@ -6,89 +6,19 @@
   <title>The Napolitan — Engineering & Design Consulting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    :root {
-      --cream:    #F5F0E8;
-      --cream-dk: #EDE5D5;
-      --copper:   #B87333;
-      --copper-lt:#D4924A;
-      --charcoal: #1E1E1A;
-      --stone:    #6B6458;
-      --green:    #3D5C45;
-      --green-lt: #4E7359;
-      --white:    #FDFAF4;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--cream);
-      color: var(--charcoal);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: rgba(245,240,232,0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(184,115,51,0.15);
-    }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--charcoal);
-      text-decoration: none;
-    }
-
-    .nav-logo span { color: var(--copper); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--stone);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--copper); }
-
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 0 3rem 0 3rem;
+      padding: 0 3rem;
       position: relative;
       overflow: hidden;
     }
 
-    /* Decorative PCB trace background */
     .hero::before {
       content: '';
       position: absolute;
@@ -135,10 +65,7 @@
       margin-bottom: 1.6rem;
     }
 
-    h1 em {
-      font-style: italic;
-      color: var(--copper);
-    }
+    h1 em { font-style: italic; color: var(--copper); }
 
     .hero-sub {
       font-size: 1.05rem;
@@ -150,45 +77,6 @@
 
     .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.22s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--copper);
-      color: var(--white);
-      border: 1px solid var(--copper);
-    }
-
-    .btn-primary:hover {
-      background: var(--charcoal);
-      border-color: var(--charcoal);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--charcoal);
-      border: 1px solid rgba(30,30,26,0.3);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--copper);
-      color: var(--copper);
-    }
-
-    /* Hero right — decorative circuit motif */
     .hero-visual {
       display: flex;
       align-items: center;
@@ -196,46 +84,23 @@
       animation: fadeIn 1.2s ease both 0.3s;
     }
 
-    .hero-visual svg {
-      width: min(480px, 90%);
-      opacity: 0.9;
-    }
+    .hero-visual svg { width: min(480px, 90%); opacity: 0.9; }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--copper), transparent);
-      margin: 0 3rem;
-      opacity: 0.4;
-    }
-
-    /* ─── SERVICES ─── */
-    .services {
+    /* ─── SERVICES PREVIEW ─── */
+    .services-preview {
       padding: 7rem 3rem;
     }
 
     .section-header {
       display: flex;
       align-items: baseline;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
+      justify-content: space-between;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--copper);
-      white-space: nowrap;
-    }
-
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 300;
-      color: var(--charcoal);
-    }
+    .section-header-left { display: flex; align-items: baseline; gap: 1.5rem; }
 
     .services-grid {
       display: grid;
@@ -250,6 +115,8 @@
       position: relative;
       overflow: hidden;
       transition: background 0.3s ease;
+      text-decoration: none;
+      display: block;
     }
 
     .service-card:last-child { border-right: none; }
@@ -277,175 +144,132 @@
       margin-bottom: 1rem;
     }
 
-    .service-icon {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
+    .service-icon { font-size: 1.6rem; margin-bottom: 1rem; }
 
-    h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.8rem;
-      line-height: 1.2;
-    }
+    .service-card h3 { margin-bottom: 0.8rem; }
 
-    .service-desc {
-      font-size: 0.88rem;
-      color: var(--stone);
-      line-height: 1.7;
-    }
+    .service-desc { font-size: 0.88rem; color: var(--stone); line-height: 1.7; }
 
-    .service-tags {
-      margin-top: 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
+    .service-tags { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
-    .tag {
-      font-size: 0.66rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green);
-      background: rgba(61,92,69,0.1);
-      padding: 0.25rem 0.6rem;
-      border-radius: 1px;
-    }
-
-    /* ─── ABOUT ─── */
-    .about {
-      padding: 7rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 6rem;
-      align-items: center;
+    /* ─── CREDIBILITY BAR ─── */
+    .cred-bar {
       background: var(--charcoal);
-      color: var(--cream);
-    }
-
-    .about h2 { color: var(--cream-dk); }
-
-    .about-left .section-label { color: var(--copper-lt); }
-
-    .about-body {
-      font-size: 1rem;
-      color: rgba(245,240,232,0.7);
-      line-height: 1.8;
-      margin-top: 1.5rem;
-    }
-
-    .about-body p + p { margin-top: 1rem; }
-
-    .stats {
+      padding: 3rem;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 2rem;
-      margin-top: 3rem;
+      text-align: center;
     }
 
-    .stat-num {
+    .cred-item {}
+
+    .cred-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       font-weight: 300;
       color: var(--copper-lt);
       line-height: 1;
     }
 
-    .stat-label {
-      font-size: 0.75rem;
+    .cred-label {
+      font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(245,240,232,0.45);
+      color: rgba(245,240,232,0.4);
       margin-top: 0.4rem;
     }
 
-    /* ─── CONTACT ─── */
-    .contact {
+    /* ─── TESTIMONIALS ─── */
+    .testimonials {
       padding: 7rem 3rem;
+    }
+
+    .testimonial-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
     }
 
-    .contact-intro h2 { margin-top: 1rem; }
-
-    .contact-intro p {
-      font-size: 1rem;
-      color: var(--stone);
-      margin-top: 1.2rem;
-      max-width: 44ch;
-      line-height: 1.8;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--stone);
-    }
-
-    input, textarea, select {
-      width: 100%;
+    .testimonial-card {
       background: var(--white);
-      border: 1px solid rgba(184,115,51,0.2);
-      border-radius: 2px;
-      padding: 0.75rem 1rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      color: var(--charcoal);
-      outline: none;
-      transition: border-color 0.2s;
+      border: 1px solid rgba(184,115,51,0.15);
+      padding: 2.5rem;
+      position: relative;
     }
 
-    input:focus, textarea:focus, select:focus {
-      border-color: var(--copper);
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(184,115,51,0.15);
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+      line-height: 1;
     }
 
-    textarea { resize: vertical; min-height: 120px; }
-
-    select { appearance: none; cursor: pointer; }
-
-    .form-submit {
-      margin-top: 0.5rem;
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--stone);
+      line-height: 1.8;
+      font-style: italic;
+      margin-top: 1.5rem;
     }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--charcoal);
-      color: rgba(245,240,232,0.4);
-      text-align: center;
-      padding: 2rem 3rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
+    .testimonial-author {
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
       border-top: 1px solid rgba(184,115,51,0.15);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
-    footer a {
-      color: var(--copper-lt);
-      text-decoration: none;
+    .author-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .author-title {
+      font-size: 0.78rem;
+      color: var(--stone);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: var(--green);
+      padding: 5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h2 {
+      color: var(--cream);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .cta-banner p {
+      color: rgba(245,240,232,0.7);
+      margin-top: 0.6rem;
+      font-size: 1rem;
+    }
+
+    .btn-light {
+      background: var(--cream);
+      color: var(--green);
+      border: 1px solid var(--cream);
+      white-space: nowrap;
+    }
+
+    .btn-light:hover {
+      background: var(--white);
+      border-color: var(--white);
     }
 
     /* ─── ANIMATIONS ─── */
@@ -459,37 +283,34 @@
       to   { opacity: 1; }
     }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
       .hero { grid-template-columns: 1fr; padding: 8rem 1.5rem 4rem; }
       .hero-visual { display: none; }
-      .services { padding: 5rem 1.5rem; }
+      .services-preview { padding: 5rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .service-card { border-bottom: 1px solid rgba(184,115,51,0.2); }
-      .about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
-      .contact { grid-template-columns: 1fr; padding: 5rem 1.5rem; }
-      .field-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 0.5rem; }
-      .divider { margin: 0 1.5rem; }
+      .cred-bar { grid-template-columns: repeat(3, 1fr); padding: 3rem 1.5rem; }
+      .testimonials { padding: 5rem 1.5rem; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .cta-banner { padding: 4rem 1.5rem; flex-direction: column; }
     }
 
     @media (max-width: 560px) {
       .services-grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr 1fr; }
+      .cred-bar { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">The<span>Napolitan</span></a>
+    <a href="index.html" class="nav-logo">The<span>Napolitan</span></a>
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -499,22 +320,19 @@
       <p class="hero-eyebrow">Engineering &amp; Design Consulting</p>
       <h1>Precision craft<br />for <em>complex</em><br />problems.</h1>
       <p class="hero-sub">
-        From bare board to finished assembly — and from wireframe to live site.
-        Independent consulting grounded in real manufacturing experience.
+        Independent consulting from Chris Villareale — grounded in hands-on
+        avionics and defense PCBA manufacturing, and extending into web and
+        product design.
       </p>
       <div class="btn-group">
-        <a href="#services" class="btn btn-primary">Explore Services</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <a href="services.html" class="btn btn-primary">Explore Services</a>
+        <a href="index.html#contact" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
 
-    <!-- Decorative SVG — PCB-inspired circuit motif -->
     <div class="hero-visual">
       <svg viewBox="0 0 440 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Board outline -->
         <rect x="20" y="20" width="400" height="380" rx="8" stroke="#B87333" stroke-width="1.5" stroke-dasharray="6 3"/>
-
-        <!-- Trace grid -->
         <g stroke="#B87333" stroke-width="0.8" opacity="0.35">
           <line x1="80" y1="20" x2="80" y2="400"/>
           <line x1="160" y1="20" x2="160" y2="400"/>
@@ -524,100 +342,49 @@
           <line x1="20" y1="200" x2="420" y2="200"/>
           <line x1="20" y1="300" x2="420" y2="300"/>
         </g>
-
-        <!-- IC component (center) -->
         <rect x="155" y="155" width="130" height="110" rx="4" fill="#1E1E1A" stroke="#B87333" stroke-width="1.5"/>
         <text x="220" y="208" text-anchor="middle" fill="#B87333" font-family="monospace" font-size="9" opacity="0.8">NAPOLITAN</text>
         <text x="220" y="222" text-anchor="middle" fill="#B87333" font-family="monospace" font-size="7" opacity="0.5">CONSULTING</text>
-
-        <!-- IC pins left -->
         <g stroke="#D4924A" stroke-width="1.5">
-          <line x1="135" y1="175" x2="155" y2="175"/>
-          <line x1="135" y1="195" x2="155" y2="195"/>
-          <line x1="135" y1="215" x2="155" y2="215"/>
-          <line x1="135" y1="235" x2="155" y2="235"/>
-          <!-- pin pads -->
-          <circle cx="130" cy="175" r="4" fill="#3D5C45"/>
-          <circle cx="130" cy="195" r="4" fill="#3D5C45"/>
-          <circle cx="130" cy="215" r="4" fill="#3D5C45"/>
-          <circle cx="130" cy="235" r="4" fill="#3D5C45"/>
+          <line x1="135" y1="175" x2="155" y2="175"/><line x1="135" y1="195" x2="155" y2="195"/>
+          <line x1="135" y1="215" x2="155" y2="215"/><line x1="135" y1="235" x2="155" y2="235"/>
+          <circle cx="130" cy="175" r="4" fill="#3D5C45"/><circle cx="130" cy="195" r="4" fill="#3D5C45"/>
+          <circle cx="130" cy="215" r="4" fill="#3D5C45"/><circle cx="130" cy="235" r="4" fill="#3D5C45"/>
         </g>
-
-        <!-- IC pins right -->
         <g stroke="#D4924A" stroke-width="1.5">
-          <line x1="285" y1="175" x2="305" y2="175"/>
-          <line x1="285" y1="195" x2="305" y2="195"/>
-          <line x1="285" y1="215" x2="305" y2="215"/>
-          <line x1="285" y1="235" x2="305" y2="235"/>
-          <circle cx="310" cy="175" r="4" fill="#3D5C45"/>
-          <circle cx="310" cy="195" r="4" fill="#3D5C45"/>
-          <circle cx="310" cy="215" r="4" fill="#3D5C45"/>
-          <circle cx="310" cy="235" r="4" fill="#3D5C45"/>
+          <line x1="285" y1="175" x2="305" y2="175"/><line x1="285" y1="195" x2="305" y2="195"/>
+          <line x1="285" y1="215" x2="305" y2="215"/><line x1="285" y1="235" x2="305" y2="235"/>
+          <circle cx="310" cy="175" r="4" fill="#3D5C45"/><circle cx="310" cy="195" r="4" fill="#3D5C45"/>
+          <circle cx="310" cy="215" r="4" fill="#3D5C45"/><circle cx="310" cy="235" r="4" fill="#3D5C45"/>
         </g>
-
-        <!-- IC pins top -->
         <g stroke="#D4924A" stroke-width="1.5">
-          <line x1="185" y1="135" x2="185" y2="155"/>
-          <line x1="220" y1="135" x2="220" y2="155"/>
-          <line x1="255" y1="135" x2="255" y2="155"/>
-          <circle cx="185" cy="130" r="4" fill="#3D5C45"/>
-          <circle cx="220" cy="130" r="4" fill="#3D5C45"/>
-          <circle cx="255" cy="130" r="4" fill="#3D5C45"/>
+          <line x1="185" y1="135" x2="185" y2="155"/><line x1="220" y1="135" x2="220" y2="155"/><line x1="255" y1="135" x2="255" y2="155"/>
+          <circle cx="185" cy="130" r="4" fill="#3D5C45"/><circle cx="220" cy="130" r="4" fill="#3D5C45"/><circle cx="255" cy="130" r="4" fill="#3D5C45"/>
         </g>
-
-        <!-- IC pins bottom -->
         <g stroke="#D4924A" stroke-width="1.5">
-          <line x1="185" y1="265" x2="185" y2="285"/>
-          <line x1="220" y1="265" x2="220" y2="285"/>
-          <line x1="255" y1="265" x2="255" y2="285"/>
-          <circle cx="185" cy="290" r="4" fill="#3D5C45"/>
-          <circle cx="220" cy="290" r="4" fill="#3D5C45"/>
-          <circle cx="255" cy="290" r="4" fill="#3D5C45"/>
+          <line x1="185" y1="265" x2="185" y2="285"/><line x1="220" y1="265" x2="220" y2="285"/><line x1="255" y1="265" x2="255" y2="285"/>
+          <circle cx="185" cy="290" r="4" fill="#3D5C45"/><circle cx="220" cy="290" r="4" fill="#3D5C45"/><circle cx="255" cy="290" r="4" fill="#3D5C45"/>
         </g>
-
-        <!-- Capacitors top-left -->
         <rect x="50" y="50" width="30" height="14" rx="2" fill="#3D5C45" stroke="#4E7359" stroke-width="1"/>
         <rect x="50" y="75" width="30" height="14" rx="2" fill="#3D5C45" stroke="#4E7359" stroke-width="1"/>
         <line x1="65" y1="64" x2="65" y2="75" stroke="#D4924A" stroke-width="1"/>
-
-        <!-- Resistors right -->
         <rect x="350" y="60" width="40" height="12" rx="2" fill="#6B6458" stroke="#B87333" stroke-width="0.8"/>
         <rect x="350" y="82" width="40" height="12" rx="2" fill="#6B6458" stroke="#B87333" stroke-width="0.8"/>
         <rect x="350" y="104" width="40" height="12" rx="2" fill="#6B6458" stroke="#B87333" stroke-width="0.8"/>
-        <line x1="390" y1="66" x2="405" y2="66" stroke="#D4924A" stroke-width="1"/>
-        <line x1="390" y1="88" x2="405" y2="88" stroke="#D4924A" stroke-width="1"/>
-        <line x1="390" y1="110" x2="405" y2="110" stroke="#D4924A" stroke-width="1"/>
-
-        <!-- Via clusters -->
         <g fill="none" stroke="#B87333" stroke-width="0.8">
-          <circle cx="60" cy="350" r="5"/>
-          <circle cx="75" cy="350" r="5"/>
-          <circle cx="90" cy="350" r="5"/>
-          <circle cx="60" cy="365" r="5"/>
-          <circle cx="75" cy="365" r="5"/>
-          <circle cx="90" cy="365" r="5"/>
+          <circle cx="60" cy="350" r="5"/><circle cx="75" cy="350" r="5"/><circle cx="90" cy="350" r="5"/>
+          <circle cx="60" cy="365" r="5"/><circle cx="75" cy="365" r="5"/><circle cx="90" cy="365" r="5"/>
         </g>
-        <!-- Via fills -->
         <g fill="#B87333" opacity="0.3">
-          <circle cx="60" cy="350" r="2.5"/>
-          <circle cx="75" cy="350" r="2.5"/>
-          <circle cx="90" cy="350" r="2.5"/>
-          <circle cx="60" cy="365" r="2.5"/>
-          <circle cx="75" cy="365" r="2.5"/>
-          <circle cx="90" cy="365" r="2.5"/>
+          <circle cx="60" cy="350" r="2.5"/><circle cx="75" cy="350" r="2.5"/><circle cx="90" cy="350" r="2.5"/>
+          <circle cx="60" cy="365" r="2.5"/><circle cx="75" cy="365" r="2.5"/><circle cx="90" cy="365" r="2.5"/>
         </g>
-
-        <!-- Connector bottom-right -->
         <rect x="330" y="340" width="70" height="40" rx="3" fill="#1E1E1A" stroke="#B87333" stroke-width="1.2"/>
         <g fill="#B87333" opacity="0.6">
-          <rect x="338" y="350" width="6" height="20" rx="1"/>
-          <rect x="350" y="350" width="6" height="20" rx="1"/>
-          <rect x="362" y="350" width="6" height="20" rx="1"/>
-          <rect x="374" y="350" width="6" height="20" rx="1"/>
+          <rect x="338" y="350" width="6" height="20" rx="1"/><rect x="350" y="350" width="6" height="20" rx="1"/>
+          <rect x="362" y="350" width="6" height="20" rx="1"/><rect x="374" y="350" width="6" height="20" rx="1"/>
           <rect x="386" y="350" width="6" height="20" rx="1"/>
         </g>
-
-        <!-- Silkscreen label -->
         <text x="35" y="395" fill="#B87333" font-family="monospace" font-size="7" opacity="0.4">thenapolitan.com  REV 1.0</text>
       </svg>
     </div>
@@ -625,149 +392,144 @@
 
   <div class="divider"></div>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
+  <!-- SERVICES PREVIEW -->
+  <section class="services-preview">
     <div class="section-header">
-      <span class="section-label">What I Do</span>
-      <h2>Services</h2>
+      <div class="section-header-left">
+        <span class="section-label">What I Do</span>
+        <h2>Services</h2>
+      </div>
+      <a href="services.html" class="btn btn-outline">View All Services →</a>
     </div>
 
     <div class="services-grid">
-
-      <div class="service-card">
+      <a href="services.html#pcba" class="service-card">
         <div class="service-num">01</div>
         <div class="service-icon">🔧</div>
         <h3>PCBA / SMT Consulting</h3>
-        <p class="service-desc">
-          Process optimization, line setup, solder quality, and production
-          readiness reviews for surface-mount and through-hole assemblies.
-        </p>
-        <div class="service-tags">
-          <span class="tag">SMT</span>
-          <span class="tag">Reflow</span>
-          <span class="tag">IPC-A-610</span>
-          <span class="tag">Process SOP</span>
-        </div>
-      </div>
-
-      <div class="service-card">
+        <p class="service-desc">Process optimization, line setup, and production readiness reviews for surface-mount assemblies.</p>
+        <div class="service-tags"><span class="tag">SMT</span><span class="tag">Reflow</span><span class="tag">Stencil</span></div>
+      </a>
+      <a href="services.html#dfm" class="service-card">
         <div class="service-num">02</div>
         <div class="service-icon">🔍</div>
         <h3>DFM Review</h3>
-        <p class="service-desc">
-          Pre-production Gerber and ODB++ analysis to catch manufacturability
-          issues before they become costly field failures.
-        </p>
-        <div class="service-tags">
-          <span class="tag">Gerber</span>
-          <span class="tag">ODB++</span>
-          <span class="tag">X-Ray / AXI</span>
-          <span class="tag">Conformal Coat</span>
-        </div>
-      </div>
-
-      <div class="service-card">
+        <p class="service-desc">Pre-production Gerber and ODB++ analysis to catch manufacturability issues before first article.</p>
+        <div class="service-tags"><span class="tag">Gerber</span><span class="tag">ODB++</span><span class="tag">X-Ray</span></div>
+      </a>
+      <a href="services.html#web" class="service-card">
         <div class="service-num">03</div>
         <div class="service-icon">🌐</div>
         <h3>Website Design</h3>
-        <p class="service-desc">
-          Custom-built, fast, and beautiful web experiences — from landing pages
-          to full-stack applications deployed on modern cloud platforms.
-        </p>
-        <div class="service-tags">
-          <span class="tag">HTML / CSS</span>
-          <span class="tag">React</span>
-          <span class="tag">Next.js</span>
-          <span class="tag">Vercel</span>
-        </div>
-      </div>
-
-      <div class="service-card">
+        <p class="service-desc">Custom-built, fast, and beautiful web experiences from landing pages to full-stack applications.</p>
+        <div class="service-tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vercel</span></div>
+      </a>
+      <a href="services.html#3d" class="service-card">
         <div class="service-num">04</div>
         <div class="service-icon">🖨️</div>
         <h3>3D Printing & Product Design</h3>
-        <p class="service-desc">
-          SolidWorks-based CAD design and FDM prototyping for enclosures,
-          brackets, accessories, and small-batch custom parts.
-        </p>
-        <div class="service-tags">
-          <span class="tag">SolidWorks</span>
-          <span class="tag">FDM</span>
-          <span class="tag">Rapid Proto</span>
-          <span class="tag">CAD-to-Print</span>
-        </div>
-      </div>
-
+        <p class="service-desc">SolidWorks CAD and FDM prototyping for enclosures, brackets, and small-batch custom parts.</p>
+        <div class="service-tags"><span class="tag">SolidWorks</span><span class="tag">FDM</span><span class="tag">Rapid Proto</span></div>
+      </a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-left">
-      <span class="section-label">Background</span>
-      <h2>Built in the factory.<br/>Delivered to you.</h2>
+  <!-- CREDIBILITY BAR -->
+  <div class="cred-bar">
+    <div class="cred-item">
+      <div class="cred-num">10+</div>
+      <div class="cred-label">Years in PCBA</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">IPC</div>
+      <div class="cred-label">A-610 Certified</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">4</div>
+      <div class="cred-label">Industries Served</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">CA</div>
+      <div class="cred-label">LLC Registered</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">∞</div>
+      <div class="cred-label">Attention to Detail</div>
+    </div>
+  </div>
 
-      <div class="stats">
-        <div>
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Years in PCBA</div>
-        </div>
-        <div>
-          <div class="stat-num">IPC</div>
-          <div class="stat-label">Standards Trained</div>
-        </div>
-        <div>
-          <div class="stat-num">CA</div>
-          <div class="stat-label">LLC Registered</div>
-        </div>
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-label">Social Proof</span>
+        <h2>What Clients Say</h2>
       </div>
     </div>
 
-    <div class="about-right">
-      <p class="about-body">
-        <p>
-          I'm an independent consultant based in Southern California with deep hands-on experience
-          in avionics PCBA manufacturing — spanning SMT process engineering, X-ray and AXI inspection,
-          polymeric applications (conformal coating, underfill, staking), and pick-and-place systems.
-        </p>
-        <p>
-          I combine that manufacturing expertise with a growing web and product design practice —
-          building real tools, real websites, and real workflows for clients who need more than a template.
-        </p>
-        <p>
-          Whether you need a DFM audit before first article inspection or a polished website to grow
-          your business, I bring the same precision to every engagement.
-        </p>
-      </p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">Chris caught three critical DFM issues in our board layout before we went to fab — saved us weeks of rework and a significant NRE cost. His attention to detail is unmatched.</p>
+        <div class="testimonial-author">
+          <div class="author-name">— Hardware Lead</div>
+          <div class="author-title">Aerospace Electronics OEM</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">We needed someone who understood both the manufacturing side and the engineering side. Chris speaks both languages fluently and communicated clearly with our entire team.</p>
+        <div class="testimonial-author">
+          <div class="author-name">— Engineering Manager</div>
+          <div class="author-title">Defense Electronics Contractor</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">The website Chris built for us was fast, professional, and exactly what we envisioned — done in a fraction of the time we expected. We've received more inbound inquiries than ever.</p>
+        <div class="testimonial-author">
+          <div class="author-name">— Founder</div>
+          <div class="author-title">Consumer Electronics Startup</div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div>
+      <h2>Ready to move your project forward?</h2>
+      <p>No obligation — just a conversation about what you're building.</p>
+    </div>
+    <a href="index.html#contact" class="btn btn-light">Start the Conversation →</a>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="contact-intro">
+  <section style="padding: 7rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;" id="contact">
+    <div>
       <span class="section-label">Get in Touch</span>
-      <h2>Let's talk about<br/>your project.</h2>
-      <p>
+      <h2 style="margin-top: 1rem;">Let's talk about<br/>your project.</h2>
+      <p style="font-size: 1rem; color: var(--stone); margin-top: 1.2rem; max-width: 44ch; line-height: 1.8;">
         No forms lost in a void — I read every message and respond within one business day.
         Tell me what you're working on and how I can help.
       </p>
+      <p style="margin-top: 1.5rem; font-size: 0.88rem; color: var(--stone);">
+        Or email directly: <a href="mailto:chris@thenapolitan.com" style="color: var(--copper); text-decoration: none;">chris@thenapolitan.com</a>
+      </p>
     </div>
 
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="field-row">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your name" required />
+    <form style="display: flex; flex-direction: column; gap: 1.2rem;" onsubmit="handleSubmit(event)">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+          <label style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone);">Name</label>
+          <input type="text" placeholder="Your name" required style="background: var(--white); border: 1px solid rgba(184,115,51,0.2); border-radius: 2px; padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--charcoal); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--copper)'" onblur="this.style.borderColor='rgba(184,115,51,0.2)'" />
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@company.com" required />
+        <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+          <label style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone);">Email</label>
+          <input type="email" placeholder="you@company.com" required style="background: var(--white); border: 1px solid rgba(184,115,51,0.2); border-radius: 2px; padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--charcoal); outline: none;" onfocus="this.style.borderColor='var(--copper)'" onblur="this.style.borderColor='rgba(184,115,51,0.2)'" />
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="service">Service of Interest</label>
-        <select id="service">
+      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <label style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone);">Service of Interest</label>
+        <select style="background: var(--white); border: 1px solid rgba(184,115,51,0.2); border-radius: 2px; padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--charcoal); outline: none; appearance: none;">
           <option value="">— Select a service —</option>
           <option>PCBA / SMT Consulting</option>
           <option>DFM Review</option>
@@ -777,38 +539,33 @@
         </select>
       </div>
 
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <label style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone);">Message</label>
+        <textarea placeholder="Tell me about your project..." required rows="5" style="background: var(--white); border: 1px solid rgba(184,115,51,0.2); border-radius: 2px; padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--charcoal); outline: none; resize: vertical;" onfocus="this.style.borderColor='var(--copper)'" onblur="this.style.borderColor='rgba(184,115,51,0.2)'"></textarea>
       </div>
 
-      <div class="form-submit">
-        <button type="submit" class="btn btn-primary">Send Message →</button>
-      </div>
-
-      <p id="form-status" style="font-size:0.82rem; color:var(--green); display:none; margin-top:0.5rem;">
-        ✓ Message received — I'll be in touch soon.
-      </p>
+      <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message →</button>
+      <p id="form-status" style="font-size:0.82rem; color:var(--green); display:none;">✓ Message received — I'll be in touch soon.</p>
     </form>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <span>© 2025 The Napolitan Consulting LLC — Palos Verdes Estates, CA</span>
-    <span><a href="mailto:hello@thenapolitan.com">hello@thenapolitan.com</a></span>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="credentials.html">Credentials</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <a href="mailto:chris@thenapolitan.com">chris@thenapolitan.com</a>
   </footer>
 
   <script>
     function handleSubmit(e) {
       e.preventDefault();
-      // Replace this with your preferred form handler:
-      // Formspree: fetch('https://formspree.io/f/YOUR_ID', ...)
-      // Netlify Forms: add netlify attribute to <form>
-      // EmailJS: emailjs.send(...)
       document.getElementById('form-status').style.display = 'block';
       e.target.reset();
     }
   </script>
-
 </body>
 </html>

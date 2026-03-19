@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — The Napolitan Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .portfolio-section { padding: 5rem 3rem; }
+
+    .filter-bar {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .filter-btn {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(184,115,51,0.25);
+      background: transparent;
+      color: var(--stone);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--copper);
+      border-color: var(--copper);
+      color: var(--white);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .portfolio-card {
+      background: var(--white);
+      border: 1px solid rgba(184,115,51,0.12);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(30,30,26,0.1);
+      z-index: 2;
+    }
+
+    .card-visual {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-visual.pcba { background: linear-gradient(135deg, #1E1E1A 0%, #2d2d28 100%); }
+    .card-visual.web  { background: linear-gradient(135deg, #3D5C45 0%, #4E7359 100%); }
+    .card-visual.dfm  { background: linear-gradient(135deg, #4a3728 0%, #6b5040 100%); }
+    .card-visual.print { background: linear-gradient(135deg, #2a3a4a 0%, #3a4f63 100%); }
+
+    .card-visual-label {
+      position: absolute;
+      bottom: 0.8rem;
+      right: 0.8rem;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .card-body { padding: 1.8rem; }
+
+    .card-meta {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .card-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-body p {
+      font-size: 0.85rem;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    .card-outcome {
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(184,115,51,0.1);
+      font-size: 0.8rem;
+      color: var(--green);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-outcome::before { content: '↑'; font-size: 0.9rem; }
+
+    /* Featured wide card */
+    .portfolio-card.featured {
+      grid-column: span 2;
+    }
+
+    .portfolio-card.featured .card-visual {
+      height: 260px;
+      font-size: 4.5rem;
+    }
+
+    /* NDA note */
+    .nda-note {
+      background: rgba(184,115,51,0.06);
+      border: 1px solid rgba(184,115,51,0.15);
+      border-left: 3px solid var(--copper);
+      padding: 1.5rem 2rem;
+      margin-bottom: 3.5rem;
+      font-size: 0.88rem;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    .nda-note strong { color: var(--charcoal); }
+
+    @media (max-width: 900px) {
+      .portfolio-section { padding: 4rem 1.5rem; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-card.featured { grid-column: span 2; }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card.featured { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">The<span>Napolitan</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <p class="page-eyebrow">Selected Work</p>
+    <h1>Projects that<br /><em>delivered results.</em></h1>
+    <p class="page-hero-sub">A selection of engagements across PCBA manufacturing, DFM review, web design, and product development. Details adjusted where NDA applies.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="portfolio-section">
+
+    <div class="nda-note">
+      <strong>A note on confidentiality:</strong> Many clients operate in defense, aerospace, and other regulated industries where project details are sensitive. Where an NDA is in place, company names and specific technical details have been abstracted. The scope, challenge, and outcome described are accurate.
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCards('all', this)">All</button>
+      <button class="filter-btn" onclick="filterCards('pcba', this)">PCBA / SMT</button>
+      <button class="filter-btn" onclick="filterCards('dfm', this)">DFM Review</button>
+      <button class="filter-btn" onclick="filterCards('web', this)">Web Design</button>
+      <button class="filter-btn" onclick="filterCards('print', this)">3D / Product</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolio-grid">
+
+      <div class="portfolio-card featured" data-cat="pcba">
+        <div class="card-visual pcba">🛩️ <div class="card-visual-label">PCBA / SMT</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">Avionics</span><span class="tag">SMT</span><span class="tag">Process Audit</span>
+          </div>
+          <h3>Avionics Assembly Line Process Overhaul</h3>
+          <p>A tier-1 avionics manufacturer experiencing elevated IPC-A-610 reject rates engaged me to perform a full SMT line audit. The engagement covered stencil printer setup, paste inspection thresholds, reflow profile validation across three oven zones, and Fuji NXT feeder management. Process SOPs were rewritten from scratch to reflect actual line configuration.</p>
+          <div class="card-outcome">Reject rate reduced by over 60% across target assembly families</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="dfm">
+        <div class="card-visual dfm">🔍 <div class="card-visual-label">DFM Review</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">Defense</span><span class="tag">BGA</span><span class="tag">DFM</span>
+          </div>
+          <h3>Defense Electronics BGA DFM Review</h3>
+          <p>Pre-production Gerber review for a ruggedized defense board with multiple high-density BGAs. Identified via-in-pad escape routing issues, stencil aperture area ratio failures for fine-pitch components, and thermal relief inadequacies near a large copper pour.</p>
+          <div class="card-outcome">Three critical issues resolved before first article — no costly respins</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="web">
+        <div class="card-visual web">🌐 <div class="card-visual-label">Web Design</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Web App</span>
+          </div>
+          <h3>Youth Soccer Training Web App</h3>
+          <p>Full-stack web application for a youth soccer coaching program — built with Next.js, Supabase, and deployed on Vercel. Features include role-based user management, drill libraries, training plan builder, badge award system, and coach/player dashboards.</p>
+          <div class="card-outcome">Active users across multiple coaching cohorts</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="pcba">
+        <div class="card-visual pcba">⚡ <div class="card-visual-label">PCBA / SMT</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">Consumer Electronics</span><span class="tag">High Volume</span>
+          </div>
+          <h3>High-Volume Consumer Electronics Yield Improvement</h3>
+          <p>Consulted on a high-volume consumer electronics line experiencing intermittent solder bridge defects on a fine-pitch QFP. Root-caused to stencil wear and aperture expansion over time. Implemented incoming stencil inspection criteria and replacement schedule.</p>
+          <div class="card-outcome">Bridge defect rate reduced to near-zero within two production runs</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="print">
+        <div class="card-visual print">🖨️ <div class="card-visual-label">3D / Product</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">SolidWorks</span><span class="tag">FDM</span><span class="tag">EV Accessory</span>
+          </div>
+          <h3>EV Charger Adapter Cradle</h3>
+          <p>Designed and printed a custom NACS adapter cradle to replace a J1772 holster on a commercial EV charging station. Iterated through geometry challenges for fit, retention force, and UV-resistance requirements. Multi-color print with snap-fit retention.</p>
+          <div class="card-outcome">Deployed on production charging hardware</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="dfm">
+        <div class="card-visual dfm">📡 <div class="card-visual-label">DFM / X-Ray</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">Aerospace</span><span class="tag">X-Ray</span><span class="tag">AXI</span>
+          </div>
+          <h3>X-Ray Inspection SOP Development</h3>
+          <p>Developed a comprehensive X-ray inspection SOP for a Creative Electron TruView Novus system for use on avionics assemblies. Covered image acquisition parameters, void acceptance criteria per IPC-7095, BGA cross-section interpretation, and non-conformance documentation workflow.</p>
+          <div class="card-outcome">SOP adopted as standard across production and quality teams</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="web">
+        <div class="card-visual web">🏓 <div class="card-visual-label">Web Design</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">React</span><span class="tag">Vercel</span><span class="tag">Sports App</span>
+          </div>
+          <h3>Table Tennis League Web App</h3>
+          <p>Full rebuild of a regional table tennis league management platform. Features ladder rankings, match result entry, badge award system, and player profiles. Built on React with Supabase backend and deployed on Vercel with automatic CI/CD.</p>
+          <div class="card-outcome">Active league management across multiple seasonal divisions</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="print">
+        <div class="card-visual print">🐱 <div class="card-visual-label">3D / Product</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">Multi-Color</span><span class="tag">Custom Model</span><span class="tag">Etsy</span>
+          </div>
+          <h3>Multi-Color Custom Figure Print</h3>
+          <p>Converted a Meshy.ai-generated 3D model to a multi-color Bambu Lab 3MF print using a custom Python GLB-to-3MF conversion script with per-face color assignment. Listed on PVEPrintShop Etsy storefront as a repeatable product.</p>
+          <div class="card-outcome">Repeatable production workflow for custom print orders</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card" data-cat="pcba">
+        <div class="card-visual pcba">🔬 <div class="card-visual-label">Polymeric</div></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="tag">Conformal Coating</span><span class="tag">SOP</span><span class="tag">Avionics</span>
+          </div>
+          <h3>Parylene Removal &amp; Arathane Touch-Up SOP</h3>
+          <p>Developed a repair and touch-up SOP for Parylene C removal and Arathane 5750 recoating on flight-heritage avionics assemblies using the Comco AccuFlo AF10 system. Covered blast media selection, masking procedures, cure verification, and IPC-CC-830 acceptance criteria.</p>
+          <div class="card-outcome">SOP qualified for use on flight hardware</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--charcoal); padding: 5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+    <div>
+      <h2 style="color: var(--cream);">Have a project in mind?</h2>
+      <p style="color: rgba(245,240,232,0.55); margin-top: 0.6rem; font-size: 1rem;">Let's add it to this list.</p>
+    </div>
+    <a href="index.html#contact" class="btn btn-primary">Get in Touch →</a>
+  </section>
+
+  <footer>
+    <span>© 2025 The Napolitan Consulting LLC — Palos Verdes Estates, CA</span>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="credentials.html">Credentials</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <a href="mailto:chris@thenapolitan.com">chris@thenapolitan.com</a>
+  </footer>
+
+  <script>
+    function filterCards(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.portfolio-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — The Napolitan Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .services-section { padding: 5rem 3rem; }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(184,115,51,0.15);
+      align-items: start;
+    }
+
+    .service-block:last-child { border-bottom: none; }
+
+    .service-left {}
+
+    .service-num-lg {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(184,115,51,0.12);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-left h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-left .section-label { display: block; margin-bottom: 0.5rem; }
+
+    .service-left p {
+      font-size: 0.9rem;
+      color: var(--stone);
+      line-height: 1.8;
+      margin-top: 1rem;
+    }
+
+    .service-cta { margin-top: 2rem; }
+
+    .service-right {}
+
+    .service-detail-list {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .service-detail-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(184,115,51,0.1);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    .service-detail-list li::before {
+      content: '→';
+      color: var(--copper);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--charcoal);
+      background: var(--cream-dk);
+      border: 1px solid rgba(184,115,51,0.2);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+    }
+
+    .deliverables-box {
+      background: var(--charcoal);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .deliverables-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    .deliverables-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .deliverables-box li {
+      font-size: 0.82rem;
+      color: rgba(245,240,232,0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .deliverables-box li::before {
+      content: '✓';
+      color: var(--copper-lt);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 900px) {
+      .services-section { padding: 4rem 1.5rem; }
+      .service-block { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">The<span>Napolitan</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="credentials.html">Credentials</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <p class="page-eyebrow">What I Offer</p>
+    <h1>Services built on<br /><em>real experience.</em></h1>
+    <p class="page-hero-sub">Every engagement is handled personally by Chris Villareale — no subcontractors, no junior staff. Just focused, expert work from someone who has done it hands-on.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="services-section">
+
+    <!-- PCBA / SMT -->
+    <div class="service-block" id="pcba">
+      <div class="service-left">
+        <div class="service-num-lg">01</div>
+        <span class="section-label">Manufacturing</span>
+        <h2>PCBA / SMT Consulting</h2>
+        <p>Deep process expertise across the full SMT line — from incoming materials and stencil printing through reflow, inspection, and final test. Applicable to new line setup, yield improvement, and production readiness reviews.</p>
+        <p>Experienced with high-mix/low-volume avionics and defense assemblies as well as high-volume consumer electronics environments.</p>
+        <div class="service-cta">
+          <a href="index.html#contact" class="btn btn-primary">Request a Consultation →</a>
+        </div>
+      </div>
+      <div class="service-right">
+        <ul class="service-detail-list">
+          <li>SMT line audit and process gap analysis — incoming materials, printer setup, placement, and reflow profiling</li>
+          <li>Stencil design review including aperture sizing, area ratio analysis, and paste volume optimization</li>
+          <li>Reflow profile development and thermal characterization for complex assemblies and mixed-alloy scenarios</li>
+          <li>Fuji NXT pick-and-place programming, feeder management, and placement accuracy verification</li>
+          <li>IPC-A-610 acceptance criteria review and operator/inspector training support</li>
+          <li>Production SOP development — written to your workflow, not a generic template</li>
+          <li>First article inspection support and process sign-off documentation</li>
+        </ul>
+        <div class="skill-chips">
+          <span class="chip">Fuji NXT3</span><span class="chip">Stencil Printing</span><span class="chip">Reflow Profiling</span>
+          <span class="chip">IPC-A-610</span><span class="chip">Solderability</span><span class="chip">Mixed Alloy</span>
+          <span class="chip">High Mix / Low Vol</span><span class="chip">High Volume</span>
+        </div>
+        <div class="deliverables-box">
+          <h4>Typical Deliverables</h4>
+          <ul>
+            <li>Written process audit report with prioritized findings</li>
+            <li>Reflow profile documentation</li>
+            <li>Stencil aperture recommendation report</li>
+            <li>Custom production SOPs</li>
+            <li>IPC-A-610 checklist tailored to your assembly</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DFM -->
+    <div class="service-block" id="dfm">
+      <div class="service-left">
+        <div class="service-num-lg">02</div>
+        <span class="section-label">Design Review</span>
+        <h2>DFM Review</h2>
+        <p>Manufacturability problems caught before fab are free. Caught during production, they're expensive. Caught in the field, they're catastrophic. A thorough DFM review is the best insurance you can buy.</p>
+        <p>Gerber, ODB++, and board layout review with a focus on real-world SMT process constraints — not just automated rule-check output.</p>
+        <div class="service-cta">
+          <a href="index.html#contact" class="btn btn-primary">Submit Files for Review →</a>
+        </div>
+      </div>
+      <div class="service-right">
+        <ul class="service-detail-list">
+          <li>Gerber and ODB++ file review for land pattern, courtyard, and clearance issues</li>
+          <li>Stencil aperture analysis — area ratio, paste release, and bridging risk assessment</li>
+          <li>Component placement review for solderability, rework access, and thermal shadowing</li>
+          <li>X-ray and AXI inspection planning — identifying areas requiring cross-sectional or 3D inspection coverage</li>
+          <li>Conformal coating and underfill compatibility review</li>
+          <li>Via-in-pad, BGA escape routing, and buried/blind via assessment</li>
+          <li>Board panelization and depaneling review for warpage and stress management</li>
+        </ul>
+        <div class="skill-chips">
+          <span class="chip">Gerber / ODB++</span><span class="chip">X-Ray / AXI</span><span class="chip">BGA</span>
+          <span class="chip">Conformal Coating</span><span class="chip">Underfill</span><span class="chip">Via-in-Pad</span>
+          <span class="chip">Creative Electron TruView</span>
+        </div>
+        <div class="deliverables-box">
+          <h4>Typical Deliverables</h4>
+          <ul>
+            <li>Annotated DFM report with flagged issues and recommended fixes</li>
+            <li>Risk-tiered finding summary (critical / major / minor)</li>
+            <li>Stencil aperture modification recommendations</li>
+            <li>Inspection coverage plan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEBSITE DESIGN -->
+    <div class="service-block" id="web">
+      <div class="service-left">
+        <div class="service-num-lg">03</div>
+        <span class="section-label">Digital</span>
+        <h2>Website Design</h2>
+        <p>Custom web experiences built from scratch — not Wix templates. Fast, modern, and deployed on professional infrastructure. Designed for engineering firms, small businesses, and startups that want to look as credible as they are.</p>
+        <p>Built with the same precision as a well-designed PCB — every element intentional, nothing extraneous.</p>
+        <div class="service-cta">
+          <a href="index.html#contact" class="btn btn-primary">Discuss Your Project →</a>
+        </div>
+      </div>
+      <div class="service-right">
+        <ul class="service-detail-list">
+          <li>Custom HTML/CSS/JS landing pages and multi-page sites — no page builders, no bloat</li>
+          <li>React and Next.js applications for more complex needs including user authentication and databases</li>
+          <li>Deployment on Vercel with custom domain configuration (just like this site)</li>
+          <li>Contact form integration, newsletter signup, and basic CMS setup</li>
+          <li>Mobile-responsive design, fast load times, and clean semantic markup</li>
+          <li>AI-assisted tooling and workflow automation built into development process</li>
+          <li>Ongoing maintenance, content updates, and feature additions</li>
+        </ul>
+        <div class="skill-chips">
+          <span class="chip">HTML / CSS / JS</span><span class="chip">React</span><span class="chip">Next.js</span>
+          <span class="chip">Vercel</span><span class="chip">Supabase</span><span class="chip">GitHub</span>
+          <span class="chip">AI-Assisted Dev</span><span class="chip">Mobile-First</span>
+        </div>
+        <div class="deliverables-box">
+          <h4>Typical Deliverables</h4>
+          <ul>
+            <li>Fully custom, production-deployed website</li>
+            <li>GitHub repository with clean, documented code</li>
+            <li>Custom domain + SSL configured</li>
+            <li>Contact form integration</li>
+            <li>30-day post-launch support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D PRINTING -->
+    <div class="service-block" id="3d">
+      <div class="service-left">
+        <div class="service-num-lg">04</div>
+        <span class="section-label">Product Design</span>
+        <h2>3D Printing &amp; Product Design</h2>
+        <p>From SolidWorks CAD to printed part in hand. Useful for enclosure prototyping, custom mounting brackets, tooling aids, and small-batch production of original designs.</p>
+        <p>Production on Bambu Lab FDM printers — multi-color capable, tight tolerances, fast turnaround for functional prototypes.</p>
+        <div class="service-cta">
+          <a href="index.html#contact" class="btn btn-primary">Get a Quote →</a>
+        </div>
+      </div>
+      <div class="service-right">
+        <ul class="service-detail-list">
+          <li>SolidWorks 3DExperience CAD modeling — parametric, feature-based design for mechanical parts and assemblies</li>
+          <li>DFM for FDM — designing for print orientation, layer adhesion, support minimization, and tolerance stack-up</li>
+          <li>Multi-color and multi-material print capability for visual prototypes and production-intent parts</li>
+          <li>Functional prototypes for fit/form/function validation before tooling investment</li>
+          <li>Custom enclosures and brackets for PCB and electronics packaging</li>
+          <li>EV and automotive accessories, consumer product accessories, and novelty items</li>
+          <li>Print file preparation, slicer optimization, and post-processing guidance</li>
+        </ul>
+        <div class="skill-chips">
+          <span class="chip">SolidWorks 3DX</span><span class="chip">FDM / FFF</span><span class="chip">Multi-Color</span>
+          <span class="chip">Bambu Lab</span><span class="chip">Tolerancing</span><span class="chip">Enclosures</span>
+          <span class="chip">Rapid Prototyping</span>
+        </div>
+        <div class="deliverables-box">
+          <h4>Typical Deliverables</h4>
+          <ul>
+            <li>SolidWorks part and assembly files</li>
+            <li>Print-ready 3MF / STL files</li>
+            <li>Physical printed parts shipped to you</li>
+            <li>Iteration support and design revisions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CTA BANNER -->
+  <section style="background: var(--green); padding: 5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+    <div>
+      <h2 style="color: var(--cream); font-size: clamp(1.8rem, 3vw, 2.4rem);">Not sure which service fits?</h2>
+      <p style="color: rgba(245,240,232,0.7); margin-top: 0.6rem;">Send a message — we'll figure it out together.</p>
+    </div>
+    <a href="index.html#contact" class="btn" style="background: var(--cream); color: var(--green); border: 1px solid var(--cream); white-space: nowrap;">Start the Conversation →</a>
+  </section>
+
+  <footer>
+    <span>© 2025 The Napolitan Consulting LLC — Palos Verdes Estates, CA</span>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="credentials.html">Credentials</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <a href="mailto:chris@thenapolitan.com">chris@thenapolitan.com</a>
+  </footer>
+
+</body>
+</html>
