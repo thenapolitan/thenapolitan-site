@@ -45,9 +45,14 @@ nav {
   letter-spacing: 0.04em;
   color: var(--charcoal);
   text-decoration: none;
+  text-transform: none;
 }
 
-.nav-logo span { color: var(--copper); }
+.nav-logo span {
+  color: var(--copper);
+  font-style: italic;
+  text-transform: lowercase;
+}
 
 .nav-links {
   display: flex;
