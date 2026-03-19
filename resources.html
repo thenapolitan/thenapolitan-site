@@ -3,40 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources — thenapolitan Consulting</title>
+  <title>Resources — thenapolitan consulting</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .resources-section { padding: 5rem 3rem; }
+    .resources-section { padding: 5rem 4rem; background: var(--white); }
 
-    .resources-intro {
-      max-width: 65ch;
+    /* DISCLAIMER BANNER */
+    .disclaimer-banner {
+      background: var(--parchment-dk);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--copper);
+      padding: 2rem 2.5rem;
       margin-bottom: 4rem;
     }
 
-    .resources-intro p {
+    .disclaimer-banner h4 {
+      font-family: 'Playfair Display', serif;
       font-size: 1rem;
-      color: var(--slate);
-      line-height: 1.8;
-      margin-top: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    /* ─── FILTER BAR ─── */
+    .disclaimer-banner p {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.8;
+    }
+
+    /* VALUE STATEMENT */
+    .value-statement {
+      background: var(--navy);
+      padding: 4rem;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-statement::after {
+      content: '';
+      position: absolute;
+      right: -100px; top: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(160,98,42,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .value-statement h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .value-statement p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      max-width: 72ch;
+    }
+
+    /* FILTER BAR */
     .filter-bar {
       display: flex;
-      gap: 0.6rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
       margin-bottom: 3rem;
     }
 
     .filter-btn {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       padding: 0.5rem 1.2rem;
-      border: 1px solid rgba(160,98,42,0.25);
+      border: 1px solid var(--border-strong);
       background: transparent;
       color: var(--slate);
       border-radius: 2px;
@@ -48,77 +98,78 @@
     .filter-btn.active {
       background: var(--copper);
       border-color: var(--copper);
-      color: var(--parchment-dk);
+      color: white;
     }
 
-    /* ─── RESOURCE GRID ─── */
+    /* RESOURCE GRID */
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
     .resource-card {
-      background: var(--parchment-dk);
-      border: 1px solid rgba(160,98,42,0.15);
+      background: var(--white);
       display: flex;
       flex-direction: column;
       position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: box-shadow 0.25s, transform 0.25s;
     }
 
     .resource-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(30,30,26,0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(20,20,20,0.1);
+      z-index: 2;
     }
 
     .resource-card-header {
       padding: 2rem 2rem 1.5rem;
-      border-bottom: 1px solid rgba(160,98,42,0.1);
+      border-bottom: 1px solid var(--border);
       position: relative;
     }
 
-    .badge {
+    .resource-card-header::after {
+      content: '';
       position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      
-      padding: 0.3rem 0.7rem;
-      border-radius: 1px;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--copper);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
     }
 
-    .badge-free {
-      background: rgba(61,92,69,0.12);
+    .resource-card:hover .resource-card-header::after {
+      transform: scaleX(1);
+    }
+
+    .resource-type-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--copper);
-      border: 1px solid rgba(61,92,69,0.2);
-    }
-
-    .badge-paid {
-      background: rgba(160,98,42,0.1);
-      color: var(--copper);
-      border: 1px solid rgba(160,98,42,0.25);
-    }
-
-    .resource-icon {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-      display: block;
+      background: var(--copper-pale);
+      border: 1px solid var(--copper-rule);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 1rem;
     }
 
     .resource-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
+      color: var(--ink);
       margin-bottom: 0.5rem;
-      padding-right: 3.5rem;
+      line-height: 1.3;
     }
 
     .resource-subtitle {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: var(--slate);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .resource-card-body {
@@ -127,10 +178,10 @@
     }
 
     .includes-label {
-      font-size: 0.65rem;
-      font-weight: 600;
+      font-size: 0.68rem;
+      font-weight: 700;
       letter-spacing: 0.14em;
-      
+      text-transform: uppercase;
       color: var(--copper);
       margin-bottom: 0.8rem;
     }
@@ -139,168 +190,192 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.45rem;
+      gap: 0.5rem;
     }
 
     .includes-list li {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--slate);
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
-      line-height: 1.5;
+      gap: 0.6rem;
+      line-height: 1.55;
     }
 
     .includes-list li::before {
-      content: '✓';
+      content: '—';
       color: var(--copper);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .includes-list li.teaser {
-      color: rgba(107,100,88,0.45);
-    }
-
-    .includes-list li.teaser::before {
-      content: '···';
-      color: rgba(160,98,42,0.3);
-      font-size: 0.65rem;
+      margin-top: 0.05rem;
     }
 
     .resource-card-footer {
       padding: 1.5rem 2rem;
-      border-top: 1px solid rgba(160,98,42,0.1);
+      border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      background: var(--parchment);
     }
 
     .resource-price {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 300;
+      font-size: 1.6rem;
+      font-weight: 700;
       color: var(--ink);
+      line-height: 1;
     }
 
-    .resource-price.free-label {
-      color: var(--copper);
-      font-size: 1.2rem;
+    .resource-price-note {
+      font-size: 0.72rem;
+      color: var(--slate-lt);
+      margin-top: 0.2rem;
+      font-weight: 400;
     }
 
     .btn-sm {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.72rem;
+      padding: 0.6rem 1.3rem;
+      font-size: 0.75rem;
     }
 
-    /* ─── COMING SOON OVERLAY ─── */
-    .resource-card.coming-soon {
-      opacity: 0.7;
+    /* CONSULTATION SECTION */
+    .consultation-section {
+      padding: 6rem 4rem;
+      background: var(--parchment-dk);
     }
 
-    .coming-soon-badge {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+    .consultation-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(20,20,20,0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .consultation-left {
+      padding: 3.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .consultation-left h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .consultation-left p {
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.85;
+    }
+
+    .consultation-left p + p { margin-top: 1rem; }
+
+    .consultation-right {
+      padding: 3.5rem;
+      background: var(--navy);
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      background: rgba(245,240,232,0.6);
-      backdrop-filter: blur(2px);
-      z-index: 5;
     }
 
-    .coming-soon-label {
-      font-size: 0.72rem;
+    .consult-price-block {
+      margin-bottom: 2rem;
+    }
+
+    .consult-price-label {
+      font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.18em;
-      
-      color: var(--slate);
-      background: var(--parchment-dk);
-      border: 1px solid rgba(160,98,42,0.25);
-      padding: 0.5rem 1.2rem;
-    }
-
-    /* ─── VALUE PROP BANNER ─── */
-    .value-banner {
-      background: var(--parchment);
-      padding: 4rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 3rem;
-      margin-top: 5rem;
-    }
-
-    .value-item { text-align: center; }
-
-    .value-icon { font-size: 2rem; margin-bottom: 0.8rem; }
-
-    .value-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--white);
+      text-transform: uppercase;
+      color: rgba(160,98,42,0.8);
       margin-bottom: 0.5rem;
     }
 
-    .value-desc {
-      font-size: 0.8rem;
-      color: rgba(245,240,232,0.45);
-      line-height: 1.7;
+    .consult-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
     }
 
-    /* ─── NOTIFY SECTION ─── */
-    .notify-section {
-      padding: 5rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .notify-section h2 { margin-top: 0.5rem; }
-
-    .notify-section p {
-      font-size: 0.95rem;
-      color: var(--slate);
-      margin-top: 1rem;
-      line-height: 1.8;
-    }
-
-    .notify-form {
-      display: flex;
-      gap: 0.8rem;
-    }
-
-    .notify-form input {
-      flex: 1;
-      background: var(--parchment-dk);
-      border: 1px solid rgba(160,98,42,0.2);
-      border-radius: 2px;
-      padding: 0.75rem 1rem;
-      font-family: 'Source Sans 3', sans-serif;
+    .consult-price-period {
       font-size: 0.9rem;
-      color: var(--ink);
-      outline: none;
-      transition: border-color 0.2s;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.3rem;
     }
 
-    .notify-form input:focus { border-color: var(--copper); }
-
-    @media (max-width: 1100px) {
-      .resource-grid { grid-template-columns: repeat(2, 1fr); }
+    .consult-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
     }
 
-    @media (max-width: 900px) {
-      .resources-section { padding: 4rem 1.5rem; }
+    .consult-includes li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      line-height: 1.5;
+    }
+
+    .consult-includes li::before {
+      content: '✓';
+      color: var(--copper-lt);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* FULL DISCLAIMER SECTION */
+    .disclaimer-section {
+      padding: 5rem 4rem;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+
+    .disclaimer-full {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .disclaimer-full h2 {
+      font-size: 1.8rem;
+      margin-top: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .disclaimer-body {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.9;
+    }
+
+    .disclaimer-body p + p { margin-top: 1rem; }
+
+    .disclaimer-body strong { color: var(--ink); font-weight: 600; }
+
+    @media (max-width: 1000px) {
+      .resources-section { padding: 4rem 2rem; }
+      .resource-grid { grid-template-columns: 1fr 1fr; }
+      .consultation-section { padding: 4rem 2rem; }
+      .consultation-card { grid-template-columns: 1fr; }
+      .consultation-left { border-right: none; border-bottom: 1px solid var(--border); }
+      .disclaimer-section { padding: 4rem 2rem; }
+      .value-statement { padding: 3rem 2rem; }
+    }
+
+    @media (max-width: 650px) {
       .resource-grid { grid-template-columns: 1fr; }
-      .value-banner { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
-      .notify-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2rem; }
-      .notify-form { flex-direction: column; }
     }
   </style>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
 <body>
 
@@ -310,267 +385,306 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="resources.html" class="active">Resources</a></li>
-      <li><a href="resources.html">Resources</a>
-      <a href="credentials.html">Credentials</a></li>
+      <li><a href="credentials.html">Credentials</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
     </ul>
   </nav>
 
   <section class="page-hero">
-    <p class="page-eyebrow">Knowledge Base</p>
-    <h1>Practical guides for<br /><em>real SMT environments.</em></h1>
-    <p class="page-hero-sub">Field-tested reference documents covering SMT lab setup, equipment selection, ESD control, and process consumables — written by someone who has built and run these environments, not consulted from a distance.</p>
+    <p class="page-eyebrow">Knowledge & Tools</p>
+    <h1>Field-tested resources for <em>serious</em> SMT operations.</h1>
+    <p class="page-hero-sub">These are not introductory guides. They are comprehensive operational references developed from direct manufacturing experience — the kind of institutional knowledge it takes years on a production floor to accumulate.</p>
   </section>
 
-  <div class="divider"></div>
+  <div class="divider-copper"></div>
 
   <section class="resources-section">
 
-    <div class="resources-intro">
-      <span class="section-label">What's Available</span>
-      <p>These guides go deeper than anything you'll find in a vendor datasheet or a generic IPC training deck. They cover the decisions that don't show up in standards — which rework station to actually buy, which floor coating survives daily production traffic, which trash bins are ESD-compliant and actually available on Amazon.</p>
-      <p>Free resources are available for immediate download. Paid resources are hosted on Gumroad — purchase once, download immediately, no subscription.</p>
+    <!-- DISCLAIMER BANNER -->
+    <div class="disclaimer-banner">
+      <h4>⚠ Professional Recommendation Disclaimer</h4>
+      <p>All resources, guides, and consultation services offered through thenapolitan consulting represent professional recommendations based on direct manufacturing experience and industry best practices. These recommendations are provided as expert opinion only. They do not constitute a guarantee of outcome for any specific production environment, assembly, or use case. Results will vary based on equipment, materials, facility conditions, personnel, and other factors outside the scope of any engagement. Choosing to implement, modify, or not implement any recommendation does not guarantee success or failure. Please review the full disclaimer below before purchasing.</p>
     </div>
 
+    <!-- VALUE STATEMENT -->
+    <div class="value-statement">
+      <h3>Why these resources are priced at a premium.</h3>
+      <p>The guides offered here represent years of direct, hands-on manufacturing experience across high-volume and high-reliability PCBA production environments. The specific recommendations — down to product names, process parameters, vendor sources, and qualification protocols — are the result of real production trial and error, not internet research or vendor datasheets. A single process improvement derived from this material can save a manufacturing operation tens of thousands of dollars in scrap, rework, and downtime. These resources are priced accordingly.</p>
+    </div>
+
+    <!-- FILTER BAR -->
     <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterResources('all', this)">All</button>
-      <button class="filter-btn" onclick="filterResources('free', this)">Free</button>
-      <button class="filter-btn" onclick="filterResources('paid', this)">Paid</button>
+      <button class="filter-btn active" onclick="filterResources('all', this)">All Resources</button>
       <button class="filter-btn" onclick="filterResources('setup', this)">Lab Setup</button>
       <button class="filter-btn" onclick="filterResources('equipment', this)">Equipment</button>
+      <button class="filter-btn" onclick="filterResources('process', this)">Process</button>
       <button class="filter-btn" onclick="filterResources('safety', this)">Safety & ESD</button>
     </div>
 
     <div class="resource-grid" id="resource-grid">
 
-      <!-- FREE: Soldering Tools Quick Reference -->
-      <div class="resource-card" data-cat="free equipment">
+      <!-- SMT Lab Setup Guide -->
+      <div class="resource-card" data-cat="setup">
         <div class="resource-card-header">
-          <span class="badge badge-free">Free</span>
-          <span class="resource-icon">🔧</span>
-          <h3>Soldering Tools Quick Reference</h3>
-          <p class="resource-subtitle">A concise reference card covering essential hand soldering tools for SMT work.</p>
-        </div>
-        <div class="resource-card-body">
-          <div class="includes-label">What's Included</div>
-          <ul class="includes-list">
-            <li>Iron tip selection guide by application</li>
-            <li>Temperature range reference by alloy type</li>
-            <li>Flux type comparison (no-clean, water-soluble, rosin)</li>
-            <li>ESD-safe handle and station requirements</li>
-            <li>Recommended entry-level and professional irons</li>
-          </ul>
-        </div>
-        <div class="resource-card-footer">
-          <span class="resource-price free-label">Free</span>
-          <a href="#" class="btn btn-primary btn-sm" onclick="comingSoon(event)">Download PDF →</a>
-        </div>
-      </div>
-
-      <!-- PAID: SMT Lab Setup Guide -->
-      <div class="resource-card" data-cat="paid setup">
-        <div class="resource-card-header">
-          <span class="badge badge-paid">Paid</span>
-          <span class="resource-icon">🏭</span>
+          <span class="resource-type-badge">Comprehensive Guide</span>
           <h3>SMT Lab Setup Guide</h3>
-          <p class="resource-subtitle">The complete playbook for standing up a functional SMT production or rework lab from scratch.</p>
+          <p class="resource-subtitle">The complete operational playbook for standing up a functional SMT production or rework lab — from empty floor to qualified line.</p>
         </div>
         <div class="resource-card-body">
           <div class="includes-label">What's Included</div>
           <ul class="includes-list">
-            <li>Room layout and workflow planning</li>
-            <li>Required vs. optional equipment by production volume</li>
-            <li>Utility requirements (power, ventilation, compressed air)</li>
-            <li>ESD flooring and workbench surface spec</li>
-            <li class="teaser">Specific product recommendations with sourcing links</li>
-            <li class="teaser">Budget tiers: startup, mid-range, production-grade</li>
-            <li class="teaser">Inspection station setup and lighting spec</li>
-            <li class="teaser">Environmental monitoring recommendations</li>
+            <li>Room layout, workflow design, and production flow planning</li>
+            <li>Required vs. optional equipment by production volume and mix</li>
+            <li>Utility requirements — power, ventilation, compressed air, humidity control</li>
+            <li>ESD flooring, workbench surface spec, and grounding architecture</li>
+            <li>Specific product recommendations with sourcing and qualification notes</li>
+            <li>Budget tiers: startup, mid-range, and full production-grade</li>
+            <li>Inspection station setup, lighting spec, and operator ergonomics</li>
+            <li>Environmental monitoring, temperature, and humidity management</li>
+            <li>Regulatory and safety compliance considerations by facility type</li>
           </ul>
         </div>
         <div class="resource-card-footer">
-          <span class="resource-price">$29</span>
-          <a href="#" class="btn btn-primary btn-sm" onclick="comingSoon(event)">Purchase →</a>
+          <div>
+            <div class="resource-price">$2,500</div>
+            <div class="resource-price-note">One-time purchase · PDF delivery</div>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Inquire →</a>
         </div>
       </div>
 
-      <!-- PAID: Equipment Checklist -->
-      <div class="resource-card" data-cat="paid setup equipment">
+      <!-- Equipment Checklist -->
+      <div class="resource-card" data-cat="setup equipment">
         <div class="resource-card-header">
-          <span class="badge badge-paid">Paid</span>
-          <span class="resource-icon">📋</span>
-          <h3>SMT Equipment Checklist</h3>
-          <p class="resource-subtitle">Itemized checklist of every piece of equipment you need — and what to look for when buying each one.</p>
+          <span class="resource-type-badge">Reference Document</span>
+          <h3>SMT Equipment Selection Guide</h3>
+          <p class="resource-subtitle">Itemized guidance on every piece of equipment a production SMT operation requires — what to look for, what to avoid, and why.</p>
         </div>
         <div class="resource-card-body">
           <div class="includes-label">What's Included</div>
           <ul class="includes-list">
-            <li>Tiered checklist: must-have, should-have, nice-to-have</li>
-            <li>Stencil printer selection criteria</li>
-            <li>Reflow oven zones, profiles, and nitrogen considerations</li>
-            <li class="teaser">Pick-and-place: when you need one vs. manual placement</li>
-            <li class="teaser">SPI and AOI: minimum viable inspection setup</li>
-            <li class="teaser">X-ray: what to look for in a used system</li>
-            <li class="teaser">Recommended specific models with notes</li>
+            <li>Tiered equipment checklist: must-have, should-have, nice-to-have</li>
+            <li>Stencil printer evaluation criteria and key specifications to demand</li>
+            <li>Reflow oven: zone count, profile capability, nitrogen, and footprint tradeoffs</li>
+            <li>Pick-and-place: when automation is justified vs. manual placement</li>
+            <li>SPI and AOI: minimum viable inspection setup for quality assurance</li>
+            <li>X-ray and AXI: what to look for when evaluating new or used systems</li>
+            <li>Specific model recommendations with notes on performance and support</li>
+            <li>Total cost of ownership analysis framework for capital equipment decisions</li>
           </ul>
         </div>
         <div class="resource-card-footer">
-          <span class="resource-price">$19</span>
-          <a href="#" class="btn btn-primary btn-sm" onclick="comingSoon(event)">Purchase →</a>
+          <div>
+            <div class="resource-price">$1,800</div>
+            <div class="resource-price-note">One-time purchase · PDF delivery</div>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Inquire →</a>
         </div>
       </div>
 
-      <!-- PAID: Rework Station Guide -->
-      <div class="resource-card" data-cat="paid equipment">
+      <!-- Rework Station Guide -->
+      <div class="resource-card" data-cat="equipment process">
         <div class="resource-card-header">
-          <span class="badge badge-paid">Paid</span>
-          <span class="resource-icon">♨️</span>
-          <h3>Rework Station Buyer's Guide</h3>
-          <p class="resource-subtitle">How to select, set up, and qualify a rework station for BGA and fine-pitch SMT component rework.</p>
+          <span class="resource-type-badge">Operational Guide</span>
+          <h3>BGA Rework Station Guide</h3>
+          <p class="resource-subtitle">How to select, qualify, set up, and operate a rework station for BGA and fine-pitch SMT component rework at production quality.</p>
         </div>
         <div class="resource-card-body">
           <div class="includes-label">What's Included</div>
           <ul class="includes-list">
-            <li>Hot air vs. IR vs. convection rework comparison</li>
-            <li>professional-grade BGA rework station setup and profile guidelines</li>
-            <li>Nozzle selection by package type</li>
-            <li class="teaser">BGA reballing and placement procedure overview</li>
-            <li class="teaser">Supporting equipment: preheaters, flux dispensers, microscopes</li>
-            <li class="teaser">Recommended budget and professional tier alternatives</li>
-            <li class="teaser">Common rework defects and how to avoid them</li>
+            <li>Hot air vs. IR vs. convection rework platform comparison and selection criteria</li>
+            <li>Rework station setup, profile development, and qualification protocol</li>
+            <li>Nozzle selection guide by package type and board complexity</li>
+            <li>BGA reballing, paste application, and placement procedure</li>
+            <li>Supporting equipment: preheaters, flux dispensers, microscopes, and vacuum tools</li>
+            <li>Equipment recommendations across budget and professional tiers</li>
+            <li>Common rework defects, root causes, and corrective actions</li>
+            <li>IPC-7711/7721 rework standards reference and compliance notes</li>
           </ul>
         </div>
         <div class="resource-card-footer">
-          <span class="resource-price">$24</span>
-          <a href="#" class="btn btn-primary btn-sm" onclick="comingSoon(event)">Purchase →</a>
+          <div>
+            <div class="resource-price">$1,500</div>
+            <div class="resource-price-note">One-time purchase · PDF delivery</div>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Inquire →</a>
         </div>
       </div>
 
-      <!-- PAID: ESD Control -->
-      <div class="resource-card" data-cat="paid safety setup">
+      <!-- ESD Control -->
+      <div class="resource-card" data-cat="safety setup">
         <div class="resource-card-header">
-          <span class="badge badge-paid">Paid</span>
-          <span class="resource-icon">⚡</span>
-          <h3>ESD Control &amp; Floor Coatings Guide</h3>
-          <p class="resource-subtitle">A practical implementation guide for ESD-compliant workspaces — from floor to fingertip.</p>
+          <span class="resource-type-badge">Compliance Guide</span>
+          <h3>ESD Control & Workspace Guide</h3>
+          <p class="resource-subtitle">A complete implementation guide for ESD-compliant production workspaces — from floor specification to fingertip protection.</p>
         </div>
         <div class="resource-card-body">
           <div class="includes-label">What's Included</div>
           <ul class="includes-list">
-            <li>ESD protection levels and ANSI/ESD S20.20 basics</li>
-            <li>Floor coating types: epoxy, rubber tile, vinyl — pros/cons</li>
-            <li>Workbench mat spec and grounding requirements</li>
-            <li class="teaser">Specific floor coating products tested in production environments</li>
-            <li class="teaser">Wrist strap and heel grounder testing protocol</li>
-            <li class="teaser">ESD-compliant trash bins, bags, and packaging</li>
-            <li class="teaser">Ionizer placement and maintenance schedule</li>
+            <li>ANSI/ESD S20.20 program requirements and implementation framework</li>
+            <li>Floor coating evaluation: epoxy, rubber tile, vinyl — tested in production environments</li>
+            <li>Workbench mat specification, grounding architecture, and wiring</li>
+            <li>Specific floor coating products with real-world durability and maintenance notes</li>
+            <li>Wrist strap and heel grounder testing protocol and frequency</li>
+            <li>ESD-compliant storage: bins, bags, trays, shelving, and packaging</li>
+            <li>Ionizer placement guidelines, airflow requirements, and maintenance schedule</li>
+            <li>Audit checklist and program documentation templates</li>
           </ul>
         </div>
         <div class="resource-card-footer">
-          <span class="resource-price">$19</span>
-          <a href="#" class="btn btn-primary btn-sm" onclick="comingSoon(event)">Purchase →</a>
+          <div>
+            <div class="resource-price">$1,200</div>
+            <div class="resource-price-note">One-time purchase · PDF delivery</div>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Inquire →</a>
         </div>
       </div>
 
-      <!-- PAID: Consumables & Disposal -->
-      <div class="resource-card" data-cat="paid safety">
+      <!-- Consumables & Disposal -->
+      <div class="resource-card" data-cat="process safety">
         <div class="resource-card-header">
-          <span class="badge badge-paid">Paid</span>
-          <span class="resource-icon">🗑️</span>
-          <h3>Consumables &amp; Disposal Guide</h3>
-          <p class="resource-subtitle">What to stock, what to reorder, and how to properly dispose of SMT process chemistry and waste.</p>
+          <span class="resource-type-badge">Operations Guide</span>
+          <h3>Consumables & Disposal Guide</h3>
+          <p class="resource-subtitle">What to stock, how to manage inventory, and how to properly store and dispose of SMT process chemistry and production waste.</p>
         </div>
         <div class="resource-card-body">
           <div class="includes-label">What's Included</div>
           <ul class="includes-list">
-            <li>Solder paste: storage, stencil life, and disposal</li>
-            <li>Flux and IPA: handling, ventilation, and waste classification</li>
-            <li>Wipes, swabs, and ESD-safe paper towel specs</li>
-            <li class="teaser">Solder waste and dross disposal — what's regulated</li>
-            <li class="teaser">Conformal coating chemistry storage and disposal</li>
-            <li class="teaser">Recommended glove types by chemistry exposure</li>
-            <li class="teaser">Reorder par levels by production volume</li>
+            <li>Solder paste: storage conditions, stencil life management, and disposal classification</li>
+            <li>Flux and cleaning agents: handling, ventilation requirements, and waste classification</li>
+            <li>Wipes, swabs, and contact materials: specification and ESD compatibility</li>
+            <li>Solder waste, dross, and regulated material disposal procedures</li>
+            <li>Conformal coating chemistry: storage, shelf life, and disposal requirements</li>
+            <li>Glove and PPE selection by chemistry and exposure type</li>
+            <li>Reorder par levels and inventory management by production volume</li>
+            <li>Regulatory compliance summary for hazardous material handling</li>
           </ul>
         </div>
         <div class="resource-card-footer">
-          <span class="resource-price">$19</span>
-          <a href="#" class="btn btn-primary btn-sm" onclick="comingSoon(event)">Purchase →</a>
+          <div>
+            <div class="resource-price">$1,200</div>
+            <div class="resource-price-note">One-time purchase · PDF delivery</div>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Inquire →</a>
         </div>
       </div>
 
-      <!-- PAID: Vent Hoods & Safety -->
-      <div class="resource-card" data-cat="paid safety setup">
+      <!-- Vent Hood & Safety -->
+      <div class="resource-card" data-cat="safety setup">
         <div class="resource-card-header">
-          <span class="badge badge-paid">Paid</span>
-          <span class="resource-icon">💨</span>
-          <h3>Vent Hood &amp; Safety Equipment Guide</h3>
-          <p class="resource-subtitle">Fume extraction, ventilation design, and personal protective equipment for SMT environments.</p>
+          <span class="resource-type-badge">Safety Guide</span>
+          <h3>Fume Extraction & Safety Equipment Guide</h3>
+          <p class="resource-subtitle">Fume extraction design, ventilation planning, and PPE specification for compliant and safe SMT production environments.</p>
         </div>
         <div class="resource-card-body">
           <div class="includes-label">What's Included</div>
           <ul class="includes-list">
-            <li>Fume extractor vs. ducted vent hood: when to use each</li>
-            <li>CFM requirements by process (hand solder, reflow, coating)</li>
-            <li>Filter types: HEPA, activated carbon, combination</li>
-            <li class="teaser">Specific bench-top fume extractor recommendations</li>
-            <li class="teaser">Reflow oven exhaust ducting and backdraft dampers</li>
-            <li class="teaser">PPE requirements by chemical exposure level</li>
-            <li class="teaser">Recommended gloves, respirators, and eye protection by process</li>
+            <li>Fume extractor vs. ducted ventilation: selection criteria and when each is appropriate</li>
+            <li>CFM requirements by process type — hand soldering, reflow, wave, and coating</li>
+            <li>Filter technology comparison: HEPA, activated carbon, and combination systems</li>
+            <li>Bench-top fume extractor recommendations with performance benchmarks</li>
+            <li>Reflow oven exhaust ducting design, backdraft prevention, and makeup air</li>
+            <li>PPE requirements by process and chemical exposure classification</li>
+            <li>Glove, respirator, and eye protection recommendations by application</li>
+            <li>OSHA compliance notes for electronics manufacturing environments</li>
           </ul>
         </div>
         <div class="resource-card-footer">
-          <span class="resource-price">$19</span>
-          <a href="#" class="btn btn-primary btn-sm" onclick="comingSoon(event)">Purchase →</a>
+          <div>
+            <div class="resource-price">$1,200</div>
+            <div class="resource-price-note">One-time purchase · PDF delivery</div>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Inquire →</a>
+        </div>
+      </div>
+
+      <!-- Soldering Tools Reference -->
+      <div class="resource-card" data-cat="equipment process">
+        <div class="resource-card-header">
+          <span class="resource-type-badge">Reference Guide</span>
+          <h3>Hand Soldering Tools Reference</h3>
+          <p class="resource-subtitle">A comprehensive reference for selecting, specifying, and qualifying hand soldering equipment for production and rework operations.</p>
+        </div>
+        <div class="resource-card-body">
+          <div class="includes-label">What's Included</div>
+          <ul class="includes-list">
+            <li>Iron tip selection guide by application, alloy, and thermal mass</li>
+            <li>Temperature range reference and thermal recovery specifications</li>
+            <li>Flux type selection: no-clean, water-soluble, and rosin by application</li>
+            <li>ESD-safe station and handle requirements for Class 2 and Class 3 work</li>
+            <li>Soldering station recommendations across entry, professional, and production tiers</li>
+            <li>Tip maintenance, tinning procedures, and replacement schedule guidance</li>
+            <li>IPC-A-610 workmanship standard alignment for hand-soldering acceptance</li>
+            <li>Training and qualification framework for production floor operators</li>
+          </ul>
+        </div>
+        <div class="resource-card-footer">
+          <div>
+            <div class="resource-price">$900</div>
+            <div class="resource-price-note">One-time purchase · PDF delivery</div>
+          </div>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Inquire →</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- VALUE PROP BANNER -->
-  <div class="value-banner">
-    <div class="value-item">
-      <div class="value-icon">🏭</div>
-      <div class="value-title">Written from the floor</div>
-      <div class="value-desc">These aren't synthesized from internet research. They're written from direct hands-on experience building and running SMT production environments.</div>
+  <!-- CONSULTATION SERVICE -->
+  <section class="consultation-section">
+    <div class="section-header" style="margin-bottom: 2.5rem;">
+      <div>
+        <span class="section-label">Consulting Engagement</span>
+        <h2 style="margin-top: 0.4rem;">Direct Consultation</h2>
+      </div>
     </div>
-    <div class="value-item">
-      <div class="value-icon">🔗</div>
-      <div class="value-title">Specific, not generic</div>
-      <div class="value-desc">Every guide names actual products, part numbers, and vendors. No vague recommendations — you should be able to order from the guide directly.</div>
-    </div>
-    <div class="value-item">
-      <div class="value-icon">♾️</div>
-      <div class="value-title">Buy once, keep forever</div>
-      <div class="value-desc">No subscription. Pay once on Gumroad, download a PDF immediately, and it's yours. Updates to purchased guides are free.</div>
-    </div>
-  </div>
 
-  <!-- NOTIFY SECTION -->
-  <section class="notify-section">
-    <div>
-      <span class="section-label">Stay Updated</span>
-      <h2>New guides added regularly.</h2>
-      <p>More topics are in development — including conformal coating application, stencil care and cleaning, and a full BGA rework process guide. Leave your email to be notified when new resources drop.</p>
-    </div>
-    <div>
-      <form class="notify-form" onsubmit="handleNotify(event)">
-        <input type="email" placeholder="you@company.com" required />
-        <button type="submit" class="btn btn-primary">Notify Me</button>
-      </form>
-      <p id="notify-status" style="display:none; font-size:0.82rem; color:var(--copper); margin-top:0.8rem;">✓ You're on the list — I'll reach out when new guides are ready.</p>
-      <p style="font-size:0.75rem; color:var(--slate); margin-top:0.8rem; line-height:1.6;">No spam. Unsubscribe any time. Email goes directly to Chris.</p>
+    <div class="consultation-card">
+      <div class="consultation-left">
+        <span class="section-label">What You Get</span>
+        <h3>Dedicated Expert Engagement</h3>
+        <p>Direct consultation with Chris Villareale — applied specifically to your production environment, your equipment, your assemblies, and your challenges. This is not a template review. It is a focused engagement grounded in 15+ years of direct PCBA manufacturing experience.</p>
+        <p>Consultation is available for SMT process improvement, DFM review, line setup, equipment selection, yield recovery, NPI readiness, and more. Engagements are scoped per project — contact to discuss your specific situation before committing.</p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--slate-lt);">All consultation is subject to the Professional Recommendation Disclaimer outlined on this page.</p>
+      </div>
+      <div class="consultation-right">
+        <div class="consult-price-block">
+          <div class="consult-price-label">Hourly Rate</div>
+          <div class="consult-price">$500</div>
+          <div class="consult-price-period">per hour · billed in 1-hour increments</div>
+        </div>
+        <div class="consult-price-block" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem;">
+          <div class="consult-price-label">Project / Retainer</div>
+          <div class="consult-price" style="font-size: 1.6rem;">Custom</div>
+          <div class="consult-price-period">scoped per engagement · contact to discuss</div>
+        </div>
+        <ul class="consult-includes">
+          <li>Personalized to your specific equipment and process</li>
+          <li>Written summary of findings and recommendations</li>
+          <li>Follow-up Q&A included within 30 days of delivery</li>
+          <li>NDA available upon request before any technical disclosure</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-outline-light">Schedule a Consultation →</a>
+      </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section style="background: var(--copper); padding: 5rem 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
-    <div>
-      <h2 style="color: var(--white);">Need something more specific?</h2>
-      <p style="color: rgba(245,240,232,0.7); margin-top: 0.6rem;">Custom SOPs and process documentation are available as a consulting engagement.</p>
+  <!-- FULL DISCLAIMER -->
+  <section class="disclaimer-section">
+    <div class="disclaimer-full">
+      <span class="section-label">Legal & Professional Disclaimer</span>
+      <h2>Professional Recommendation Disclaimer</h2>
+      <div class="disclaimer-body">
+        <p><strong>Nature of Services.</strong> All resources, guides, documents, and consultation services provided through thenapolitan consulting represent professional opinions and recommendations derived from direct manufacturing experience and industry knowledge. They are offered as expert guidance only and are not a substitute for site-specific engineering analysis, regulatory review, or qualified professional assessment of your specific operation.</p>
+        <p><strong>No Guarantee of Outcome.</strong> The recommendations and information contained in any resource or consultation engagement do not constitute a guarantee, warranty, or assurance of any specific outcome. Manufacturing results depend on a wide range of variables including but not limited to equipment condition, material lot properties, facility environment, operator skill, process controls, and product-specific requirements — many of which are outside the scope of any general recommendation or remote consultation.</p>
+        <p><strong>Prior Performance.</strong> References to prior results — including yield improvements, throughput gains, cost savings, or other measurable outcomes — reflect specific engagements and production environments and should not be interpreted as a guarantee that identical or similar results will be achieved in any other environment. Past performance in one production context does not guarantee performance in another.</p>
+        <p><strong>Independent Decision-Making.</strong> The decision to implement, modify, or decline any recommendation rests solely with the client. Choosing not to follow a recommendation does not guarantee failure. Choosing to follow a recommendation does not guarantee success. thenapolitan consulting assumes no liability for outcomes resulting from the implementation or non-implementation of any advice, recommendation, guide, or consultation service.</p>
+        <p><strong>Scope Limitation.</strong> Consultation services and resources are intended to inform and support decision-making, not to replace it. They are not a substitute for your organization's internal engineering review, quality management system, regulatory compliance process, or qualified personnel. Any recommendation should be evaluated by qualified individuals within your organization before implementation.</p>
+        <p><strong>Acceptance.</strong> Purchase of any resource or engagement of any consultation service constitutes acknowledgment and acceptance of the terms of this disclaimer.</p>
+        <p style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--slate-lt);">For questions regarding the scope of any engagement or the applicability of any recommendation to your specific situation, contact <a href="mailto:chris@thenapolitan.com" style="color: var(--copper);">chris@thenapolitan.com</a> before purchasing.</p>
+      </div>
     </div>
-    <a href="index.html#contact" class="btn" style="background: var(--parchment); color: var(--copper); border: 1px solid var(--white); white-space: nowrap;">Discuss a Custom Guide →</a>
   </section>
 
   <footer>
@@ -578,7 +692,6 @@
     <div class="footer-links">
       <a href="services.html">Services</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="resources.html">Resources</a>
       <a href="resources.html">Resources</a>
       <a href="credentials.html">Credentials</a>
       <a href="faq.html">FAQ</a>
@@ -594,17 +707,6 @@
         const cats = card.dataset.cat || '';
         card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
       });
-    }
-
-    function comingSoon(e) {
-      e.preventDefault();
-      alert('This resource is coming soon! Leave your email in the notification form below to be notified when it\'s available.');
-    }
-
-    function handleNotify(e) {
-      e.preventDefault();
-      document.getElementById('notify-status').style.display = 'block';
-      e.target.reset();
     }
   </script>
 </body>
