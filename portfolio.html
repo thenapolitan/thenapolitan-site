@@ -161,6 +161,7 @@
     <ul class="nav-links">
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="credentials.html">Credentials</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="index.html#contact">Contact</a></li>
@@ -215,15 +216,23 @@
         </div>
       </div>
 
-      <div class="portfolio-card" data-cat="web">
-        <div class="card-visual web">🌐 <div class="card-visual-label">Web Design</div></div>
+      <!-- FF - Featured -->
+      <div class="portfolio-card featured" data-cat="web">
+        <div class="card-visual web" style="position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:column;flex-direction:column;gap:0.5rem;justify-content:center;">
+            <span style="font-size:3rem;">⚽</span>
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:rgba(253,250,244,0.85);letter-spacing:0.08em;">Fundamental Futball</span>
+          </div>
+          <div class="card-visual-label">Web App · Next.js</div>
+        </div>
         <div class="card-body">
           <div class="card-meta">
-            <span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Web App</span>
+            <span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">Full-Stack</span>
           </div>
-          <h3>Youth Soccer Training Web App</h3>
-          <p>Full-stack web application for a youth soccer coaching program — built with Next.js, Supabase, and deployed on Vercel. Features include role-based user management, drill libraries, training plan builder, badge award system, and coach/player dashboards.</p>
-          <div class="card-outcome">Active users across multiple coaching cohorts</div>
+          <h3>Fundamental Futball — Youth Soccer Coaching Platform</h3>
+          <p>A full-stack web application built for a youth soccer coaching program. The platform provides coaches and players with role-based dashboards, structured training plan management, and a drill library. Built with Next.js and Supabase, deployed on Vercel with automatic CI/CD — replacing scattered PDF handouts and group chats with a single organized platform.</p>
+          <p style="margin-top:0.6rem;font-size:0.85rem;color:var(--stone);">Features include role-based access control, auto badge award system, training plan builder, user onboarding guides, and Venmo deep link integration.</p>
+          <div class="card-outcome">Active across multiple coaching cohorts — ongoing development through v2.2+</div>
         </div>
       </div>
 
